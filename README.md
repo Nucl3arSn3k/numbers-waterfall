@@ -1,7 +1,6 @@
 # numwaterfall
 
-[![Package Version](https://img.shields.io/hexpm/v/numwaterfall)](https://hex.pm/packages/numwaterfall)
-[![Hex Docs](https://img.shields.io/badge/hex-docs-ffaff3)](https://hexdocs.pm/numwaterfall/)
+
 
 ```sh
 gleam add numwaterfall@1
@@ -14,7 +13,7 @@ pub fn main() {
 }
 ```
 
-Further documentation can be found at <https://hexdocs.pm/numwaterfall>.
+Working on a matrix-like number waterfall for my Linux rice mainly as an excuse to learn gleam,since I like beamvm based languages.
 
 ## Development
 
