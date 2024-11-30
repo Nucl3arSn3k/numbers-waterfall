@@ -14,6 +14,10 @@ pub fn main() {
   io.println(padded_bin)
 }
 
-fn binary_conversion(a1: Int) {
-  todo as "Just convert the int to base 2 manually"
+fn recursive_me(x: Bool) {
+  case x {
+    False -> io.println("no recursion")
+    True -> recursive_me(x)
+    //_ -> 
+  }
 }
