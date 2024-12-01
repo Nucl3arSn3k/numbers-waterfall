@@ -1,18 +1,8 @@
+
 defmodule NumWaterfall do
-  @moduledoc """
-  Documentation for `NumWaterfall`.
-  """
 
-  @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> NumWaterfall.hello()
-      :world
-
-  """
-  def hello do
-    :world
+  def main do
+    random_number = :rand.uniform(5000)
+    NumUtilities.binhelp(random_number)
   end
 end
