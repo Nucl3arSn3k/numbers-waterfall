@@ -1,23 +1,21 @@
-# numwaterfall
+# NumWaterfall
 
+**TODO: Add description**
 
+## Installation
 
-```sh
-gleam add numwaterfall@1
+If [available in Hex](https://hex.pm/docs/publish), the package can be installed
+by adding `num_waterfall` to your list of dependencies in `mix.exs`:
+
+```elixir
+def deps do
+  [
+    {:num_waterfall, "~> 0.1.0"}
+  ]
+end
 ```
-```gleam
-import numwaterfall
 
-pub fn main() {
-  // TODO: An example of the project in use
-}
-```
+Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
+and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
+be found at <https://hexdocs.pm/num_waterfall>.
 
-Working on a matrix-like number waterfall for my Linux rice mainly as an excuse to learn gleam,since I like beamvm based languages.
-
-## Development
-
-```sh
-gleam run   # Run the project
-gleam test  # Run the tests
-```
