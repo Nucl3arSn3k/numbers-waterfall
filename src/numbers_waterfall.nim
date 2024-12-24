@@ -2,6 +2,9 @@
 # uses this file as the main entry point of the application.
 import illwill
 import os
+import std/random
+import sequtils
+randomize() #need to do this because it'll be the same every run,need to randomize the seed
 func binaryConversion(x: int): seq[int] =
   if x == 0:
     @[]
@@ -10,7 +13,11 @@ func binaryConversion(x: int): seq[int] =
 
 
 
-
+proc listToString(x: seq[int]): string =
+  var res:string = ""
+  for i in x:
+    res &= $i
+  res
 
 proc exitProc() {.noconv.} = 
   illwillDeinit()
@@ -18,7 +25,7 @@ proc exitProc() {.noconv.} =
   quit(0)
 
 
-proc main() =
+proc main(x:string) =
   illwillInit(fullscreen=true)
   setControlCHook(exitProc)
   hideCursor()
@@ -26,7 +33,7 @@ proc main() =
   var 
     tb = newTerminalBuffer(terminalWidth(), terminalHeight()) #newbuff
     yPos = 0
-    text = "Hello World!"
+    text = x
 
   while true:
     # Clear the buffer
@@ -52,4 +59,12 @@ proc main() =
 
 
 when isMainModule:
-  main()
+
+  let num = rand(2000000000..2147483647)
+  let list = binaryConversion(num)
+  let stfinal = listToString(list)
+  main(stfinal)
+  #echo num
+  #echo stfinal
+  #echo list
+  #main()
