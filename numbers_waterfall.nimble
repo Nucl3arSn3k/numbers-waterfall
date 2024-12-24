@@ -11,3 +11,4 @@ bin           = @["numbers_waterfall"]
 # Dependencies
 
 requires "nim >= 2.2.0"
+requires "illwill >= 0.4.1"
