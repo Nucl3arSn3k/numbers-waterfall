@@ -35,36 +35,27 @@ proc main(x:string) =
   illwillInit(fullscreen=true)
   setControlCHook(exitProc)
   hideCursor()
-
-  var 
-    tb = newTerminalBuffer(terminalWidth(), terminalHeight()) #newbuff
+  var
+    tb = newTerminalBuffer(terminalWidth(), terminalHeight())
     yPos = 0
-    text = x
-
+  
+  # Lambda for generating lines
+  #let generateLine = () => bigcall()
+  
   while true:
-    # Clear the buffer
     tb.clear()
-
     tb.setForegroundColor(fgGreen)
     
-    # Draw the text at current y position
     
-    tb.write(0, yPos, bigcall())
-    tb.write(0, yPos + 1, bigcall())
-    # Display the buffer
+    for y in 0..<terminalHeight():
+      for x in 0..<terminalWidth():
+        let line = bigcall()
+        tb.write(x, y, line[0..min(line.len-1, terminalWidth()-1)])
+    
     tb.display()
+    sleep(500)
     
-    # Move text down
-    yPos.inc
-    if yPos >= terminalHeight():
-      yPos = 0
-      
-    # Add a small delay to control animation speed
-    sleep(500) # 100ms delay
-    
-    # Check for quit
-    var key = getKey()
-    if key == Key.Q: exitProc()
+    if getKey() == Key.Q: exitProc()
 
 
 
