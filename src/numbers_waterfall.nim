@@ -25,6 +25,12 @@ proc exitProc() {.noconv.} =
   quit(0)
 
 
+proc bigcall():string =
+  let num = rand(2000000000..2147483647)
+  let list = binaryConversion(num)
+  let stfinal = listToString(list)
+  stfinal
+
 proc main(x:string) =
   illwillInit(fullscreen=true)
   setControlCHook(exitProc)
@@ -38,10 +44,13 @@ proc main(x:string) =
   while true:
     # Clear the buffer
     tb.clear()
+
+    tb.setForegroundColor(fgGreen)
     
     # Draw the text at current y position
-    tb.write(0, yPos, text)
     
+    tb.write(0, yPos, bigcall())
+    tb.write(0, yPos + 1, bigcall())
     # Display the buffer
     tb.display()
     
@@ -51,19 +60,19 @@ proc main(x:string) =
       yPos = 0
       
     # Add a small delay to control animation speed
-    sleep(100) # 100ms delay
+    sleep(500) # 100ms delay
     
     # Check for quit
     var key = getKey()
     if key == Key.Q: exitProc()
 
 
+
+
 when isMainModule:
 
-  let num = rand(2000000000..2147483647)
-  let list = binaryConversion(num)
-  let stfinal = listToString(list)
-  main(stfinal)
+  
+  main("placehold")
   #echo num
   #echo stfinal
   #echo list
